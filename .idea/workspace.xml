@@ -47,7 +47,7 @@
           <file leaf-file-name="screen.scss" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/sass/screen.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="21" column="19" selection-start="408" selection-end="408" vertical-scroll-proportion="0.5828221">
+                <state line="84" column="24" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.5411043">
                   <folding />
                 </state>
               </provider>
@@ -77,8 +77,8 @@
         <option value="$PROJECT_DIR$/sass/normalize.css" />
         <option value="$PROJECT_DIR$/template.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/sass/screen.scss" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/sass/screen.scss" />
       </list>
     </option>
   </component>
@@ -323,7 +323,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sass/screen.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="19" selection-start="408" selection-end="408" vertical-scroll-proportion="0.5828221">
+        <state line="84" column="24" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.5411043">
           <folding />
         </state>
       </provider>
