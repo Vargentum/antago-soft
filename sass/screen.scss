@@ -1,0 +1,180 @@
+@charset "utf-8";
+@import "compass/reset";
+
+@import "h5bp";
+@include h5bp-display;
+@include h5bp-selection;
+@include h5bp-chromeframe;
+@include h5bp-media;
+@include h5bp-base;
+@include h5bp-typography;
+@include h5bp-figures;
+@include h5bp-forms;
+@include h5bp-embeds;
+@include h5bp-tables;
+@include h5bp-helpers;
+@include h5bp-links;
+//@include h5bp-lists;
+
+@import "compass";
+
+//SPRITING
+//@import "/*.png";
+
+
+//border-box-sizing for all elems
+*{@include box-sizing(border-box);}
+input[type=search]{@include box-sizing(border-box);}
+
+/*VARIABLES
+--------------------------------------------*/
+//set colors here;
+$bgColor:#fff;
+$titleColor:#333;
+$servColor:#808080;
+//base font params--------------------
+$baseFontFamily: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+$baseFontColor: #252525;
+$baseFontSize:12px;
+$baseLineHeight: 1.4;
+
+
+//hack for ie9 - need for gradient backgrounds
+:root .gradient {filter: none \0/IE9; }
+@mixin ie9-gradient-support{
+  $experimental-support-for-svg: true;
+  @extend .gradient;
+}
+
+
+
+
+html, button, input, select, textarea {
+  height: 100%;
+  font-family: $baseFontFamily;
+  color: $baseFontColor;
+}
+body {
+  height: 100%;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  background-color: #fff;
+}
+
+.b-list{
+  counter-reset: list;
+  text-align: center;
+  margin:100px auto;
+  >*{
+    width:280px;
+    @include inline-block;
+    margin:0 20px;
+    text-align: left;
+  }
+}
+.b-list__element{
+
+  padding: 5px;
+  position:relative;
+  @include border-radius;
+  background-color: #fff;
+
+  @include box-shadow(0 1px 4px rgba(0,0,0,.45));
+  .ornament{
+    padding:5px;
+    border-style: solid;
+    border-width: 8px 9px 6px 8px;
+    -moz-border-image: url(../images/ornament.png) 8 9 6 8 repeat;
+    -webkit-border-image: url(../images/ornament.png) 8 9 6 8 repeat;
+    -o-border-image: url(../images/ornament.png) 8 9 6 8 repeat;
+    border-image: url(../images/ornament.png) 8 9 6 8 fill repeat;
+  }
+  header{padding-left: 5px;}
+    .title{
+      font-size: 16px; font-weight: bold; color: $titleColor; text-transform: uppercase;
+      &:before{
+        counter-increment: list;
+        content: counter(list)". ";
+      }
+    }
+    dl{margin:5px 0; font-size: 12px;}
+    dt{color:$servColor;}
+    dd{color:$titleColor;}
+  .content{
+    padding:5px 8px 8px;
+    @include border-radius;
+    background-color: $bgColor;
+    border: solid 1px #d1e7f5;
+    @include background-image(linear-gradient(bottom, #effaff, #fff));
+  }
+    figure{}
+      figcaption{font-weight: bold;}
+    .countdown_text{color:$servColor; font-size: 11px; @include inline-block;}
+    .button{
+      font-size: 14px;
+      color:$bgColor;
+      @include inline-block;
+      padding:3px 20px;
+      text-decoration: none;
+      @include border-radius(5px);
+      background-color: #fff;
+      @include box-shadow(0 1px rgba(255,255,255,.58), inset 0 2px rgba(255,255,255,.25));
+      border: solid 1px #2c7a32;
+      @include ie9-gradient-support;
+      @include background-image(linear-gradient(bottom, #3d9445, #4cb554));
+      &:hover,&:focus{background: #4cb554;}
+      &:active{
+        @include background-image(linear-gradient(bottom,#4cb554, #3d9445));
+      }
+    }
+  .label{
+    position: absolute;
+    top:0; right: 0;
+    @include border-radius(3px);
+    background-color: #000;
+    @include box-shadow(0 0 3px rgba(255,255,255,.75), 0 1px 4px #000, inset 0 0 3px rgba(62,2,2,.2));
+    border: solid 1px $bgColor;
+    @include ie9-gradient-support;
+    @include background-image(linear-gradient(bottom, #d71528, #ff7a7a));
+    font-size: 12px;
+    line-height: 1;
+    padding:3px 5px;
+    color:$bgColor;
+    @include single-transition(all,.5s,ease,0s);
+    &:hover{@include scale();}
+  }
+}
+
+.b-progress_bar{
+  .b-list__element &{margin: 3px 0 12px;}
+  background-color: $bgColor;
+  border:1px solid #9ecbe8;
+  height: 15px;
+  position: relative;
+  text-align:center;
+  .percent{
+    &:after{content: '%';}
+    font-weight: bold;
+    color:#1e4b69;
+    position: absolute;
+    width:100%;
+    left:0;top:-1px;
+    text-align: center;
+  }
+  .bar{
+    background-color: #9ecbe8;
+    @include single-transition(all,.5s,ease,0s);
+    width:0;
+    height: 100%;
+  }
+}
+
+//debug
+//* { outline: 2px dotted red; }
+//* * { outline: 2px dotted green; }
+//* * * { outline: 2px dotted orange; }
+//* * * * { outline: 2px dotted blue; }
+//* * * * * { outline: 1px solid red; }
+//* * * * * * { outline: 1px solid green; }
+//* * * * * * * { outline: 1px solid orange; }
+//* * * * * * * * { outline: 1px solid blue; }
